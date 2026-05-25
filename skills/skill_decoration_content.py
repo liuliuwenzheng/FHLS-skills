@@ -60,14 +60,18 @@ STYLE_TEMPLATES = {
 }
 
 
-def generate_post(scene_desc: str, content_type: str = "避坑", count: int = 3) -> list:
+def generate_post(scene_desc: str, content_type: str = "避坑", count: int = 3,
+                  details: str = None, pro_tips: list = None, pain_point: str = None) -> list:
     """
-    生成装修小红书文案
+    生成装修小红书文案（专业版）
     
     参数:
         scene_desc: 装修场景描述 (如"厨房瓷砖刚贴完")
         content_type: 内容类型 "避坑"/"日记"/"施工"
         count: 生成条数
+        details: 场景细节补充（越长越真实）
+        pro_tips: 专业建议列表，如["柜门要装缓冲铰链","背板厚度至少9mm"]
+        pain_point: 具体痛点（不传则自动匹配）
         
     返回:
         包含多条文案的列表
@@ -78,38 +82,49 @@ def generate_post(scene_desc: str, content_type: str = "避坑", count: int = 3)
     template = STYLE_TEMPLATES[content_type]
     results = []
     
+    import random
+    
     for i in range(count):
-        # 选择不同痛点切入
-        pain_point = COMMON_PAIN_POINTS[(COMMON_PAIN_POINTS.index(scene_desc[:4]) if any(
-            p.startswith(scene_desc[:4]) for p in COMMON_PAIN_POINTS
-        ) else i) % len(COMMON_PAIN_POINTS)]
+        # 选择痛点
+        actual_pain = pain_point or COMMON_PAIN_POINTS[i % len(COMMON_PAIN_POINTS)]
         
         # 选3个标签
-        import random
         tags = random.sample(HASHTAGS, 3)
         
-        # 组合文案
-        title = f"{template['hook']} {scene_desc}"
-        body = f"""{template['emoji']} {title}
-
-{scene_desc}，你以为很简单？我差点翻车了！
-
-❌ 我一开始的做法：
-（装修公司说这样做没问题...）
-
-✅ 后来问了老师傅才知道：
-（原来应该这样！）
-
-💡 装修小白记住这几点：
-1. 第一点关键提醒
-2. 第二点关键提醒  
-3. 第三点关键提醒
-
-{' '.join(tags)}
-
-#装修 #装修经验 #装修日记
-"""
-        results.append(body)
+        # 生成专业建议（传入的用传入的，否则用默认）
+        tips = pro_tips if pro_tips else [
+            "提前做好功课，别等工人进场了才学",
+            "关键节点要亲自去工地盯着",
+            "合同里写清楚的，别信口头承诺"
+        ]
+        
+        # 构建文案
+        lines = [f"{template['emoji']} {template['hook']}"]
+        lines.append("")
+        lines.append(f"📍 {scene_desc}")
+        
+        if details:
+            lines.append(f"📸 {details}")
+        
+        lines.append("")
+        lines.append("❌ 装修小白容易踩的坑：")
+        lines.append(f"👉 {actual_pain}，这个问题不解决后患无穷！")
+        lines.append("")
+        lines.append("✅ 老师傅教我的正确做法：")
+        
+        for j, tip in enumerate(tips[:3], 1):
+            lines.append(f"  {j}. {tip}")
+        
+        lines.append("")
+        lines.append(f"💡 总结：{actual_pain}不是小事，装修每一步都马虎不得。")
+        lines.append("")
+        lines.append("我是做了10年装修的老李，每天分享工地实拍+避坑干货。")
+        lines.append("关注我，装修不迷路！❤️")
+        lines.append("")
+        lines.append(' '.join(tags))
+        lines.append("#装修 #装修经验 #装修日记")
+        
+        results.append('\n'.join(lines))
     
     return results
 
