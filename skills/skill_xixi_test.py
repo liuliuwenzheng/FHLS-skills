@@ -1,2 +1,0 @@
-# test skill
-print('ok')
