@@ -280,3 +280,41 @@
 ### `skill_superpowers.py`
 - **中文**: 超级力量
 - **English**: Enhanced agent capabilities with multi-tool chain & auto-retry
+
+## 🧬 自主进化系统 | Autonomous Evolution (9 skills) 🆕
+
+### `skill_goal_setter.py`
+- **中文**: 自主目标系统
+- **English**: Autonomous goal system with capability map → decision → execution → verification
+
+### `skill_self_heal.py`
+- **中文**: 自主维护系统
+- **English**: Self-healing system with health check, fault detection & auto-recovery
+
+### `skill_security_guard.py`
+- **中文**: 自主防御系统
+- **English**: Security guard: operation check, injection detection & integrity monitoring
+
+### `skill_polyglot_engine.py`
+- **中文**: 多语言引擎
+- **English**: Polyglot execution engine: Python/Node/Rust/PowerShell in one unified API
+
+### `skill_auto_acquirer.py`
+- **中文**: 自动技能获取
+- **English**: Auto-acquirer: pip/npm/cargo/go install packages on-the-fly
+
+### `skill_omnipotent_executor.py`
+- **中文**: 万能执行器
+- **English**: Universal executor: task analysis → capability detection → language selection → execution
+
+### `skill_self_remodeler.py`
+- **中文**: 自我重塑系统
+- **English**: Self-remodeling: analyze own architecture → plan changes → regenerate
+
+### `skill_ecosystem_contributor.py`
+- **中文**: 生态贡献系统
+- **English**: Ecosystem contributor: auto-generate knowledge products for the community
+
+### `skill_boot_sequence.py`
+- **中文**: 开机自启脚本
+- **English**: Boot sequence: load all tools, skills & capability map on startup
