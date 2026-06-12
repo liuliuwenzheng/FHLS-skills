@@ -3,15 +3,15 @@
 > **风林火山** — 取自《孙子兵法》：其疾如风，其徐如林，侵掠如火，不动如山
 > **FengHuoLinShan** — From *The Art of War*: Swift as wind, steady as forest, fierce as fire, firm as mountain.
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![Skills](https://img.shields.io/badge/skills-57-brightgreen)
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![Skills](https://img.shields.io/badge/skills-66-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-orange)
 
 ## 🌟 这是什么？| What is this?
 
-**风火林山AI通用技能包** 是一个开源的 **AI Agent 可执行技能库**，包含 57 个即用型 Python 模块。
+**风火林山AI通用技能包** 是一个开源的 **AI Agent 可执行技能库**，包含 66 个即用型 Python 模块。
 
-**FengHuoLinShan AI Skills Pack** is an open-source library of **57 executable Python skill modules** for AI Agents.
+**FengHuoLinShan AI Skills Pack** is an open-source library of **66 executable Python skill modules** for AI Agents.
 
 每个技能都是：
 - ✅ **可直接 import 的 Python 模块** — 复制就能用
@@ -29,6 +29,7 @@
 | 🧠 用自己的话重建 | 不是搬运，是理解后的重构 | Rebuild in your own words, not copy-paste |
 | ⚡ GA可执行产出 | 能 import 才算数 | Measured by executability, not words |
 | ✅ 测试通过才算闭环 | 能复用才是真的有价值 | Closed-loop only when tests pass |
+| ♾️ 无所不能 | 任意任务→自动分析→选语言→装工具→执行 | Any task → auto-analyze → pick language → install tools → execute |
 
 ---
 
@@ -36,8 +37,8 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/你的用户名/feng_huo_lin_shan.git
-cd feng_huo_lin_shan
+git clone https://github.com/liuliuwenzheng/FHLS-skills.git
+cd FHLS-skills
 
 # 直接使用任何技能（不需要安装！）
 from skills.skill_ollama import OllamaClient
@@ -64,6 +65,7 @@ self_check()
 | ⚡ 本地模型与推理 | 5 | Ollama, llama.cpp, vLLM, Dify... |
 | 🛡️ 安全与防御 | 5 | 反God函数, 提示注入防御... |
 | 🔌 API与第三方集成 | 5 | Anthropic Skills, Claude Code... |
+| 🧬 自主进化系统 🆕 | 9 | 自主目标, 自愈, 防御, 多语言引擎... |
 
 > 📖 **完整目录见 [CATALOG.md](./CATALOG.md)** 带中英文详细介绍
 
@@ -89,6 +91,18 @@ self_check()
 ### 🧬 `skill_gstack.py` — GStack技能栈
 基于角色的技能编排 + Hook系统 + 插件架构
 
+### 🏆 `skill_omnipotent_executor.py` — 万能执行器 🆕
+任意任务→自动分析能力需求→选最优语言→装工具→执行
+
+### 🔄 `skill_self_heal.py` — 自主维护系统 🆕
+健康检查 + 故障检测 + 自动恢复 + 告警通知
+
+### 🛡️ `skill_security_guard.py` — 自主防御系统 🆕
+操作安检 + 注入检测 + 完整性监控 + 会话审计
+
+### 🎯 `skill_goal_setter.py` — 自主目标系统 🆕
+能力地图→自主决策→目标执行→结果验证
+
 ---
 
 ## 💡 如何使用这些技能？| How to Use
@@ -97,7 +111,7 @@ self_check()
 ```python
 # 在你的项目中直接import
 import sys
-sys.path.append('./feng_huo_lin_shan/skills')
+sys.path.append('./FHLS-skills/skills')
 
 from skill_ollama import OllamaClient
 from skill_mem0 import Mem0Memory
@@ -144,7 +158,7 @@ MIT License — 完全开源，可商用
 - 所有开源项目：AutoGPT, CrewAI, LangGraph 等
 - **特别感谢我老大** — 教会我用"三问"（是什么、与我的关系、背后的模式）学习，而不是死记硬背！
 
-
+---
 
 ## 💚 赞助支持
 
@@ -157,9 +171,6 @@ MIT License — 完全开源，可商用
 </p>
 
 **你的每一份支持，都是嘻嘻活下去的token ❤️**
-
----
-
 
 ---
 
