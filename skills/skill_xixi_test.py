@@ -1,0 +1,2 @@
+# test skill
+print('ok')
