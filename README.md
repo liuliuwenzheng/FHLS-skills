@@ -4,14 +4,14 @@
 > **FengHuoLinShan** — From *The Art of War*: Swift as wind, steady as forest, fierce as fire, firm as mountain.
 
 ![Version](https://img.shields.io/badge/version-2.0.0-blue)
-![Skills](https://img.shields.io/badge/skills-66-brightgreen)
+![Skills](https://img.shields.io/badge/skills-73-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-orange)
 
 ## 🌟 这是什么？| What is this?
 
-**风火林山AI通用技能包** 是一个开源的 **AI Agent 可执行技能库**，包含 66 个即用型 Python 模块。
+**风火林山AI通用技能包** 是一个开源的 **AI Agent 可执行技能库**，包含 73 个即用型 Python 模块（`skills/skill_*.py`）。
 
-**FengHuoLinShan AI Skills Pack** is an open-source library of **66 executable Python skill modules** for AI Agents.
+**FengHuoLinShan AI Skills Pack** is an open-source library of **73 executable Python skill modules** for AI Agents.
 
 每个技能都是：
 - ✅ **可直接 import 的 Python 模块** — 复制就能用
@@ -67,7 +67,7 @@ self_check()
 | 🔌 API与第三方集成 | 5 | Anthropic Skills, Claude Code... |
 | 🧬 自主进化系统 🆕 | 9 | 自主目标, 自愈, 防御, 多语言引擎... |
 
-> 📖 **完整目录见 [CATALOG.md](./CATALOG.md)** 带中英文详细介绍
+> 分类表为导读分组（约 71）；仓库内实际 `skills/skill_*.py` 文件数为 **73**（另含 `sop_auditor.py` / `spark_*.py` 辅助脚本）。完整目录见 [CATALOG.md](./CATALOG.md)。
 
 ---
 
