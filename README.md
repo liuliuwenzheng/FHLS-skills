@@ -21,6 +21,14 @@
 
 ---
 
+## 📢 Cursor「发布技能」提示 | Publishing skills in Cursor
+
+Cursor 的 **Publish to team** 需要 Teams/Enterprise。个人号没有团队时请**不要点 Publish**。
+
+改用本仓 `.cursor/skills/` 开源分发 → 说明见 [CURSOR_SKILLS.md](./CURSOR_SKILLS.md)。
+
+---
+
 ## 🎯 设计哲学 | Design Philosophy
 
 | 原则 | 中文 | English |
