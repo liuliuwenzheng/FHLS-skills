@@ -1000,7 +1000,7 @@ if __name__ == '__main__':
     print(f"\n状态: {json.dumps(engine.get_status(), indent=2)}")
 
     # ── GA插件安装演示 ──
-    GA_DIR = r'<GA_HOME_OR_MY_AGENT_HOME>'
+    GA_DIR = os.environ.get('GA_HOME') or os.environ.get('MY_AGENT_HOME') or str(Path.home() / 'my-agent')
     print("\n=== GA插件安装器演示 ===")
     ga_engine = GStackEngine()
     ga_engine.connect_to_ga(GA_DIR)

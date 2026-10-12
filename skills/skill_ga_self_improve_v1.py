@@ -25,8 +25,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 
-# ── 路径 ──
-BASE = Path(r"<GA_HOME_OR_MY_AGENT_HOME>")
+# ── 路径（便携：GA_HOME / MY_AGENT_HOME，否则 ~/my-agent）──
+BASE = Path(
+    os.environ.get("GA_HOME")
+    or os.environ.get("MY_AGENT_HOME")
+    or (Path.home() / "my-agent")
+)
 MEMORY = BASE / "memory"
 TEMP = BASE / "temp"
 L4_DIR = MEMORY / "L4_raw_sessions"

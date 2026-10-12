@@ -95,11 +95,27 @@ def get_chrome_launch_args(user_data_dir: str = None) -> List[str]:
     第1层方案: 使用真实用户数据目录
     
     Args:
-        user_data_dir: Chrome用户数据目录路径
-                       Windows默认: %LOCALAPPDATA%\\Google\\Chrome\\User Data
+        user_data_dir: Chrome用户数据目录路径。
+            未传时依次用 CHROME_USER_DATA_DIR；
+            Windows: %LOCALAPPDATA%/Google/Chrome/User Data；
+            其他: ~/.config/google-chrome
     Returns:
         启动参数列表
     """
+    import os
+
+    if not user_data_dir:
+        user_data_dir = os.environ.get("CHROME_USER_DATA_DIR")
+    if not user_data_dir:
+        if os.name == "nt":
+            local = os.environ.get("LOCALAPPDATA") or ""
+            if local:
+                user_data_dir = os.path.join(local, "Google", "Chrome", "User Data")
+        else:
+            candidate = os.path.expanduser("~/.config/google-chrome")
+            if os.path.isdir(candidate):
+                user_data_dir = candidate
+
     args = [
         "--remote-debugging-port=9222",
         "--disable-blink-features=AutomationControlled",
@@ -167,7 +183,7 @@ if __name__ == "__main__":
     
     # 测试3: 启动参数
     print("\n测试3: 启动参数")
-    args = get_chrome_launch_args(r"<CHROME_USER_DATA_DIR>")
+    args = get_chrome_launch_args()  # uses CHROME_USER_DATA_DIR / platform default
     assert "--remote-debugging-port=9222" in args
     assert "--disable-blink-features=AutomationControlled" in args
     print(f"  ✅ 启动参数数量: {len(args)}")
